@@ -68,3 +68,9 @@ vcpkg_installed/
 Testing/
 .cache/
 /.vs
+*/.vs
+
+/x64
+*/64
+*/*/x64
+
