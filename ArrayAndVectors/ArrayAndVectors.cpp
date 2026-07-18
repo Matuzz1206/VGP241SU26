@@ -21,11 +21,10 @@ int main()
     myVector.PopBack();
     for (std::size_t i = 0; i < myVector.Size(); ++i)
     {
-        std::cout << (myVector[i] += rand()) << "\n";
+        std::cout << (myVector[i]) << "\n";
     }
 
 }
-
 /*
 int main()
 {
