@@ -123,15 +123,15 @@ public:
 		++mSize;
 	}
 	void PopBack() {
-		assert(mSize > 0, "Vector is empty");
+		assert(mSize > 0 && "Vector is empty");
 		Resize(mSize - 1);
 	}
 	T& operator[](std::size_t index) {
-		assert(index < mSize, "Index out of bounds");
+		assert(index < mSize && "Index out of bounds");
 		return mValues[index];
 	}
 	const T& operator[](std::size_t index) const {
-		assert(index < mSize, "Index out of bounds");
+		assert(index < mSize && "Index out of bounds");
 		return mValues[index];
 	}
 

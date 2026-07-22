@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Assignment1", "Assignment1\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IteratorsAndPriorityQueue", "IteratorsAndPriorityQueue\IteratorsAndPriorityQueue.vcxproj", "{EE1B847D-11F1-469D-ABFD-32352FEF84FA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Assignment2", "Assignment2\Assignment2.vcxproj", "{F141E793-B2C7-4E30-BD54-4D452D362356}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -57,6 +59,14 @@ Global
 		{EE1B847D-11F1-469D-ABFD-32352FEF84FA}.Release|x64.Build.0 = Release|x64
 		{EE1B847D-11F1-469D-ABFD-32352FEF84FA}.Release|x86.ActiveCfg = Release|Win32
 		{EE1B847D-11F1-469D-ABFD-32352FEF84FA}.Release|x86.Build.0 = Release|Win32
+		{F141E793-B2C7-4E30-BD54-4D452D362356}.Debug|x64.ActiveCfg = Debug|x64
+		{F141E793-B2C7-4E30-BD54-4D452D362356}.Debug|x64.Build.0 = Debug|x64
+		{F141E793-B2C7-4E30-BD54-4D452D362356}.Debug|x86.ActiveCfg = Debug|Win32
+		{F141E793-B2C7-4E30-BD54-4D452D362356}.Debug|x86.Build.0 = Debug|Win32
+		{F141E793-B2C7-4E30-BD54-4D452D362356}.Release|x64.ActiveCfg = Release|x64
+		{F141E793-B2C7-4E30-BD54-4D452D362356}.Release|x64.Build.0 = Release|x64
+		{F141E793-B2C7-4E30-BD54-4D452D362356}.Release|x86.ActiveCfg = Release|Win32
+		{F141E793-B2C7-4E30-BD54-4D452D362356}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +76,7 @@ Global
 		{1B388D48-3796-4CFC-842B-83C26CB0A258} = {B44C92AB-F637-4040-BFA7-76F67ED094CE}
 		{82BE2F54-2414-4182-B6C5-18C3B66194FF} = {7E46E858-447F-4E7B-B7E9-79C714E890E3}
 		{EE1B847D-11F1-469D-ABFD-32352FEF84FA} = {B44C92AB-F637-4040-BFA7-76F67ED094CE}
+		{F141E793-B2C7-4E30-BD54-4D452D362356} = {7E46E858-447F-4E7B-B7E9-79C714E890E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECBA1DD1-40AB-4A24-9B67-5CC4038A4014}
