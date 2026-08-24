@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <functional>
-#include <cassert>
 #include "Vector.h"
 
 template<typename KeyType, typename ValueType>
@@ -151,7 +150,7 @@ public:
 			}
 		}
 
-		assert(false && "UnorderedMap: Key never gets added");
+		assert(false, "UnorderedMap: Key never gets added");
 		return m_default;
 	}
 
@@ -215,4 +214,7 @@ private:
 	double m_loadFactorThreshold = 1.0;
 	// stl version of hashFunctin to allow any atype of key value to be hashed
 	std::hash<KeyType> m_hashFunction;
+
+
+
 };
