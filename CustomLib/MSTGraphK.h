@@ -1,8 +1,6 @@
 #pragma once
-
 #include "Vector.h"
 #include "Global.h"
-
 class DisjointSetUnion
 {
 public:
@@ -33,7 +31,6 @@ public:
 		}
 		if (mRank[rootFrom] < mRank[rootTo])
 		{
-
 			mParent[rootFrom] = rootTo;
 		}
 		else if (mRank[rootFrom] > mRank[rootTo])
@@ -51,7 +48,6 @@ private:
 	Vector<int> mParent;
 	Vector<int> mRank;
 };
-
 template<typename T, typename W = int>
 class MSTGraphK
 {
@@ -66,11 +62,9 @@ private:
 	{
 		const T* data = nullptr;
 	};
-
 public:
 	MSTGraphK()
 	{
-
 	}
 	~MSTGraphK()
 	{
@@ -87,29 +81,51 @@ public:
 		Edge newEdge = { from, to, weight };
 		mEdges.PushBack(newEdge);
 	}
-
 	void ObtainMST(Vector<const T*>& mst, Vector<const T*>& links, W& totalWeight)
 	{
 		std::size_t numNode = mNodes.Size();
 		links.Resize(numNode, nullptr);
 		DisjointSetUnion dsu(numNode);
-		Global::IntroSort(mEdges.begin(), mEdges.end(),
+		Global::IntroSort(mEdges.Begin(), mEdges.End(),
 			[](const Edge& a, const Edge& b)
 			{
 				return a.weight < b.weight;
 			});
-		for (std::size_t i = 0; i < mEdges.Size(); ++i)
+
+		Vector<Vector<int>> adjacency;
+		adjacency.Resize(numNode);
+
+		std::size_t edgesUsed = 0;
+		for (std::size_t i = 0; i < mEdges.Size() && edgesUsed < numNode - 1; ++i)
 		{
 			Edge& edge = mEdges[i];
 			if (dsu.UnitEdges(edge.from, edge.to))
 			{
 				totalWeight += edge.weight;
-				mst.PushBack(mNodes[edge.from]->data);
-				links[edge.to] = mNodes[edge.from]->data;
-
-				if (mst.Size() == numNode - 1) {
-					mst.PushBack(mNodes[edge.to]->data);
-					break;
+				adjacency[edge.from].PushBack(edge.to);
+				adjacency[edge.to].PushBack(edge.from);
+				++edgesUsed;
+			}
+		}
+		Vector<bool> visited;
+		visited.Resize(numNode, false);
+		Vector<std::size_t> stack;
+		stack.PushBack(0);
+		visited[0] = true;
+		mst.PushBack(mNodes[0]->data);
+		while (stack.Size() > 0)
+		{
+			std::size_t current = stack[stack.Size() - 1];
+			stack.PopBack();
+			for (std::size_t n = 0; n < adjacency[current].Size(); ++n)
+			{
+				int neighbor = adjacency[current][n];
+				if (!visited[neighbor])
+				{
+					visited[neighbor] = true;
+					links[neighbor] = mNodes[current]->data;
+					mst.PushBack(mNodes[neighbor]->data);
+					stack.PushBack(static_cast<std::size_t>(neighbor));
 				}
 			}
 		}
@@ -120,12 +136,10 @@ public:
 		{
 			delete mNodes[i];
 			mNodes[i] = nullptr;
-
 		}
 		mNodes.Clear();
 		mEdges.Clear();
 	}
-
 private:
 	Vector<Node*> mNodes;
 	Vector<Edge> mEdges;

@@ -2,32 +2,28 @@
 // Gives accesibility to iterator functions 
 // Can be tied into and used with std::sorting functions ( std::sort, priorityQueue...)
 // Iterate over containers instead of indexing through them
-
 #include "Vector.h"
 #include <iostream>
 template<typename T, typename Compare = std::less<typename T>>
 class PriorityQueue {
 public:
 	PriorityQueue() {}
-
 	bool Empty() const {
 		return mValues.Size() == 0;
 	}
 	const std::size_t Size() {
 		return mValues.Size();
 	}
-
 	void Push(const T& value) {
 		mValues.PushBack(value);
 		HeapifyUp(Size() - 1);
 	}
-
 	const T& Top() const {
 		return mValues[0];
 	}
 	void Pop() {
 		if (Empty()) {
-			assert(false, "Tried to pop an empty PriorityQueue");
+			assert(false && "Tried to pop an empty PriorityQueue");
 			return;
 		}
 		mValues[0] = mValues[Size() - 1];
@@ -55,11 +51,9 @@ private:
 		int largest = index;
 		int leftChild = 2 * index + 1;
 		int rightChild = 2 * index + 2;
-
 		if (leftChild < Size() && mCompare(mValues[largest], mValues[leftChild])) {
 			largest = leftChild;
 		}
-
 		if (rightChild < Size() && mCompare(mValues[largest], mValues[rightChild])) {
 			largest = rightChild;
 		}
