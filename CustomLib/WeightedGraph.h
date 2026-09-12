@@ -89,7 +89,7 @@ public:
                 {
                     toNode->totalWeight = node->totalWeight + toEdge.weight;
                     toNode->parent = node;
-                    process.Push(toEdge);
+                    process.Push({ toEdge.nodeIndex, toNode->totalWeight });
                 }
             }
         }
