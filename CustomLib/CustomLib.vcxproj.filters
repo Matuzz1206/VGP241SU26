@@ -60,5 +60,8 @@
     <ClInclude Include="MSTGraphK.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="WeightedGraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
